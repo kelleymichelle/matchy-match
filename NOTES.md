@@ -29,3 +29,8 @@ medium: 32/ 8x4
 hard: 48/ 12x4
 insane: 72/ 9x8
 
+* frontend can set front and back styling of tiles and double each tile per level. 
+* Player enters name, selects level, new game begins. 
+* new game renders tiles, doubled fronts facing and timer begins
+* high score board saves players high score and displays top 5 or 10
+
