@@ -16,3 +16,9 @@ tile
 
 Player has many games.
 Game belongs to a player. 
+
+game has many tiles through levels
+
+seed data = levels and amount of tiles for difficulty. 
+tiles
+
