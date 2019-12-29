@@ -3,34 +3,37 @@ const PLAYERS_URL = `${BACKEND_URL}/players`
 
 document.addEventListener('DOMContentLoaded', function() {
   newGameForm();
+  listenForNewGame();
+  // levelChoice();
+  
 })
 
 function newGameForm() {
   const gameForm = 
-  `<div class="new-player-form">
+  `<div id="new-player-form">
     <form>
       <div>
         <label for"playerName">Player Name:</label>
         <input type="text" id="playerName" name="playerName">
       </div>
       <div>
-        <input type="radio" id="very-easy" name="very-easy" value="very-easy">
+        <input class="radio" type="radio" id="very-easy" name="radio" value="very-easy">
         <label for="very-easy">Very Easy</label>
       </div>
       <div>
-        <input type="radio" id="easy" name="easy" value="easy">
+        <input class="radio" type="radio" id="easy" name="radio" value="easy">
         <label for="easy">Easy</label>
       </div>
       <div>
-        <input type="radio" id="medium" name="medium" value="medium">
+        <input class="radio" type="radio" id="medium" name="radio" value="medium">
         <label for="medium">Medium</label>
       </div>
       <div>
-        <input type="radio" id="hard" name="hard" value="hard">
+        <input class="radio" type="radio" id="hard" name="radio" value="hard">
         <label for="hard">Hard</label>
       </div>
       <div>
-        <input type="radio" id="very-hard" name="very-hard" value="very-hard">
+        <input class="radio" type="radio" id="very-hard" name="radio" value="very-hard">
         <label for="very-hard">Very Hard</label>
       </div>
 
@@ -40,7 +43,33 @@ function newGameForm() {
   </div>`
   body = document.querySelector('body')
   body.innerHTML = gameForm
+
+  // listenForNewGame();
 }
+
+function listenForNewGame() {
+  const gameForm = document.getElementById('new-player-form')
+  const radios = document.getElementsByClassName('radio')
+
+  gameForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const radioArray = [...radios]
+    const diff = radioArray.find(r => r.checked)
+    // const elements = [...e.target.elements]
+    console.log(e)
+    console.log(diff)
+  })
+}
+
+// function levelChoice() {
+//   const radios = document.getElementsByClassName('radio')
+
+//   radios.forEach(button => {
+//     button.addEventListener('click', (e) => {
+//       console.log(e)
+//     })
+//   })
+//   }
 
 function postPlayer() {
   let player = {
