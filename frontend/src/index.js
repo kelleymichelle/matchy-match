@@ -76,21 +76,37 @@ function postPlayer(name, level) {
     return response.json()
   })
   .then(function (data) {
-    parseData(data)
+    parseGame(data)
   })
   };
 
-  function parseData(data) {
+  // parse data returned from post fetch for new player/game
+  let game;
+
+  function parseGame(data) {
     console.log(data)
     // const dataTiles = [...data.tiles]
-    let game = new Game(data.player_name, data.player_id, data.game_id)
-    // debugger
+    game = new Game(data.player_name, data.player_id, data.game_id)
+    fetchTiles(game.gameId)
   }
 
+  // fetch tiles for game
   function fetchTiles(gameId) {
   fetch(`${BACKEND_URL}/games/${gameId}`)
     .then(response => response.json())
-    .then(parsedResponse => console.log(parsedResponse));
+    .then(parsedResponse => parseTiles(parsedResponse.tiles));
+  }
+
+  let gameTiles;
+
+  function parseTiles(tiles) {
+    // debugger
+    gameTiles = tiles.map(t => {
+      let newTile = new Tile(t.id, t.front, t.back)
+      return newTile
+    })
+    debugger
+    return gameTiles
   }
 
   class Game {
@@ -100,9 +116,7 @@ function postPlayer(name, level) {
       this.gameId = gameId
       // this.gameTimer = 0
     }
-    // set tiles() {
-    //   this.tiles = []
-    // }
+    
   }
 
   class Tile {

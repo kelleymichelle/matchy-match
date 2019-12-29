@@ -31,7 +31,7 @@ class PlayersController < ApplicationController
       very_hard_level_maker(game)
     end          
     
-    render json: {player_id: player.id, player_name: player.name, game_id: game.id, tiles: game.tiles }
+    render json: {player_id: player.id, player_name: player.name, game_id: game.id}
   end
 
   #helpers for number of tiles per level
