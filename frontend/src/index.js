@@ -4,7 +4,6 @@ const PLAYERS_URL = `${BACKEND_URL}/players`
 document.addEventListener('DOMContentLoaded', function() {
   newGameForm();
   listenForNewGame();
-  // levelChoice();
   
 })
 
@@ -44,7 +43,6 @@ function newGameForm() {
   body = document.querySelector('body')
   body.innerHTML = gameForm
 
-  // listenForNewGame();
 }
 
 function listenForNewGame() {
@@ -56,20 +54,10 @@ function listenForNewGame() {
     const radioArray = [...radios]
     const diff = radioArray.find(r => r.checked)
     // const elements = [...e.target.elements]
-    console.log(e)
-    console.log(diff)
+    console.log(e.target["0"].value)
+    console.log(diff.value)
   })
 }
-
-// function levelChoice() {
-//   const radios = document.getElementsByClassName('radio')
-
-//   radios.forEach(button => {
-//     button.addEventListener('click', (e) => {
-//       console.log(e)
-//     })
-//   })
-//   }
 
 function postPlayer() {
   let player = {
