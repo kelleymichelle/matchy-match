@@ -11,7 +11,7 @@ class PlayersController < ApplicationController
   end
 
   def create
-    # binding.pry
+    
     player_name = params[:name]
     player_level = params[:level]
     player = Player.create(name: player_name)

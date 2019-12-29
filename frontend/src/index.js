@@ -79,3 +79,22 @@ function postPlayer(name, level) {
     console.log(data)
   })
   };
+
+  class Game {
+    constructor(playerName, playerId, gameId) {
+      this.playerName = playerName
+      this.playerId = playerId
+      this.gameId = gameId
+    }
+    set tiles() {
+      this.tiles = []
+    }
+  }
+
+  class Tile {
+    constructor(id, front, back) {
+      this.id = id
+      this.front = front
+      this.back = back
+    }
+  }
