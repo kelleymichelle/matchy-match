@@ -16,7 +16,7 @@ function newGameForm() {
         <input type="text" id="playerName" name="playerName">
       </div>
       <div>
-        <input class="radio" type="radio" id="very-easy" name="radio" value="very-easy">
+        <input class="radio" type="radio" id="very-easy" name="radio" value="very easy">
         <label for="very-easy">Very Easy</label>
       </div>
       <div>
@@ -32,17 +32,14 @@ function newGameForm() {
         <label for="hard">Hard</label>
       </div>
       <div>
-        <input class="radio" type="radio" id="very-hard" name="radio" value="very-hard">
+        <input class="radio" type="radio" id="very-hard" name="radio" value="very hard">
         <label for="very-hard">Very Hard</label>
       </div>
-
-
       <button type"submit">Let's Play!</button>
     </form>
   </div>`
   body = document.querySelector('body')
   body.innerHTML = gameForm
-
 }
 
 function listenForNewGame() {
@@ -53,16 +50,18 @@ function listenForNewGame() {
     e.preventDefault();
     const radioArray = [...radios]
     const diff = radioArray.find(r => r.checked)
-    // const elements = [...e.target.elements]
-    console.log(e.target["0"].value)
-    console.log(diff.value)
+    const playerName = e.target["0"].value
+    const playerLevel = diff.value
+    console.log(playerName)
+    console.log(playerLevel)
+    postPlayer(playerName, playerLevel)
   })
 }
 
-function postPlayer() {
+function postPlayer(name, level) {
   let player = {
-    name: "Kelley",
-    level: "very easy"
+    name: `${name}`,
+    level: `${level}`
   };
   let configObj = {
     method: "POST",
@@ -73,10 +72,10 @@ function postPlayer() {
     body: JSON.stringify(player)
   };
   fetch("http://localhost:3000/players", configObj)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(object) {
-      console.log(object);
-    });
+  .then(function (response) {
+    return response.json()
+  })
+  .then(function (data) {
+    console.log(data)
+  })
   };

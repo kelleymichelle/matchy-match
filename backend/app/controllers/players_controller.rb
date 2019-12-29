@@ -11,7 +11,7 @@ class PlayersController < ApplicationController
   end
 
   def create
-    
+    # binding.pry
     player_name = params[:name]
     player_level = params[:level]
     player = Player.create(name: player_name)
@@ -30,8 +30,8 @@ class PlayersController < ApplicationController
     when "very hard"
       very_hard_level_maker(game)
     end          
-    # very_easy_level_maker(game)
-    # binding.pry
+    
+    render json: {player_id: player.id, player_name: player.name, game_id: game.id, tiles: game.tiles }
   end
 
   #helpers for number of tiles per level

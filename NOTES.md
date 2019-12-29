@@ -44,4 +44,7 @@ fetch(`${BACKEND_URL}/test`)
   .then(response => response.json())
   .then(parsedResponse => console.log(parsedResponse));
 
+  -to remove elements by id:
+    document.getElementById('new-player-form').remove();
+
 
