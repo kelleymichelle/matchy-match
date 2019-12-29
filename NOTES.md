@@ -37,4 +37,7 @@ insane: 72/ 9x8
 12/28: 
 * can save a player and associated game and level
 
+Tile.new(game_id: game.id)
+level.tiles << tile
+
 
