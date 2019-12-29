@@ -34,6 +34,8 @@ class PlayersController < ApplicationController
     # binding.pry
   end
 
+  #helpers for number of tiles per level
+
   def very_easy_level_maker(game)
     level = Level.new(difficulty: "very easy")
     game.level = level
