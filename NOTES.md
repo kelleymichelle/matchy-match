@@ -47,4 +47,6 @@ fetch(`${BACKEND_URL}/test`)
   -to remove elements by id:
     document.getElementById('new-player-form').remove();
 
+    TODO: fetch function to get tiles for game (2/3 fetch calls)
+
 

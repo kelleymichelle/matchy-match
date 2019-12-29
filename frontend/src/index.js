@@ -82,9 +82,15 @@ function postPlayer(name, level) {
 
   function parseData(data) {
     console.log(data)
-    const dataTiles = [...data.tiles]
+    // const dataTiles = [...data.tiles]
     let game = new Game(data.player_name, data.player_id, data.game_id)
-    debugger
+    // debugger
+  }
+
+  function fetchTiles(gameId) {
+  fetch(`${BACKEND_URL}/games/${gameId}`)
+    .then(response => response.json())
+    .then(parsedResponse => console.log(parsedResponse));
   }
 
   class Game {
