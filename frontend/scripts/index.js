@@ -100,13 +100,13 @@ function postPlayer(name, level) {
   let gameTiles;
 
   function parseTiles(tiles) {
-    // debugger
+   
     gameTiles = tiles.map(t => {
       let newTile = new Tile(t.id, t.front, t.back)
       return newTile
     })
-    debugger
-    return gameTiles
+    
+    renderGame();
   }
 
   class Game {
