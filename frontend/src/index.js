@@ -76,19 +76,27 @@ function postPlayer(name, level) {
     return response.json()
   })
   .then(function (data) {
-    console.log(data)
+    parseData(data)
   })
   };
+
+  function parseData(data) {
+    console.log(data)
+    const dataTiles = [...data.tiles]
+    let game = new Game(data.player_name, data.player_id, data.game_id)
+    debugger
+  }
 
   class Game {
     constructor(playerName, playerId, gameId) {
       this.playerName = playerName
       this.playerId = playerId
       this.gameId = gameId
+      // this.gameTimer = 0
     }
-    set tiles() {
-      this.tiles = []
-    }
+    // set tiles() {
+    //   this.tiles = []
+    // }
   }
 
   class Tile {
