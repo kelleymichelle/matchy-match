@@ -1,8 +1,13 @@
+
 .thumbnail {
   height: 160px;
   width: 160px;
   padding: 10px;
   margin: 10px;
+}
+
+.front {
+  background: url("images/mm.png");
 }
 
 #tile-box {

@@ -29,8 +29,8 @@ let processedTiles;
 
 function tileProcessor() {
   processedTiles = gameTiles.map(t => {
-    t.front = `<div class="rounded thumbnail" style="background-color: green;" tileid="${t.id}"></div>`
-    t.back = `<div class="rounded thumbnail" style="background-color: blue;" tileid="${t.id}"></div>`
+    t.front = `<div class="rounded thumbnail front" tileid="${t.id}"></div>`
+    t.back = `<div class="rounded thumbnail back" style="background-color: blue;" tileid="${t.id}"></div>`
     return t
   })
   

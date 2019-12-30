@@ -62,3 +62,7 @@ fetch(`${BACKEND_URL}/test`)
 need to find tile back picture and unique colors for tile fronts
 
 need to double tiles on rendering and randomize
+
+background-image: url('silouette_interface.jpeg');
+
+ style="background-color: green;"
