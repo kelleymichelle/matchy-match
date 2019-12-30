@@ -66,3 +66,14 @@ need to double tiles on rendering and randomize
 background-image: url('silouette_interface.jpeg');
 
  style="background-color: green;"
+
+ <div class="flip-card thumbnail rounded">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="images/mm.png" alt="Tile front" style="width:160px;height:160px;">
+    </div>
+    <div class="flip-card-back">
+      <p>Tile back</p>
+    </div>
+  </div>
+</div>

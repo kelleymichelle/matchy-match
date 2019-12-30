@@ -1,15 +1,13 @@
-const BACKEND_URL = 'http://localhost:3000'
-const PLAYERS_URL = `${BACKEND_URL}/players`
+const BACKEND_URL = "http://localhost:3000";
+const PLAYERS_URL = `${BACKEND_URL}/players`;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
   newGameForm();
   listenForNewGame();
-  
-})
+});
 
 function newGameForm() {
-  const gameForm = 
-  `<div class="jumbotron" id="new-player-form">
+  const gameForm = `<div class="jumbotron" id="new-player-form">
     <center>
     <h1>Welcome to mAtChY-mAtCh!</h1>
     <form>
@@ -43,27 +41,27 @@ function newGameForm() {
       <button type"submit" class="btn btn-secondary btn-lg">Let's Play!</button>
     </form>
     </center>
-  </div>`
+  </div>`;
   // body = document.querySelector('body')
   // body.innerHTML = gameForm
-  const cont = document.getElementById('nabber')
-  cont.innerHTML = gameForm
+  const cont = document.getElementById("nabber");
+  cont.innerHTML = gameForm;
 }
 
 function listenForNewGame() {
-  const gameForm = document.getElementById('new-player-form')
-  const radios = document.getElementsByClassName('radio')
+  const gameForm = document.getElementById("new-player-form");
+  const radios = document.getElementsByClassName("radio");
 
-  gameForm.addEventListener('submit', (e) => {
+  gameForm.addEventListener("submit", e => {
     e.preventDefault();
-    const radioArray = [...radios]
-    const diff = radioArray.find(r => r.checked)
-    const playerName = e.target["0"].value
-    const playerLevel = diff.value
-    console.log(playerName)
-    console.log(playerLevel)
-    postPlayer(playerName, playerLevel)
-  })
+    const radioArray = [...radios];
+    const diff = radioArray.find(r => r.checked);
+    const playerName = e.target["0"].value;
+    const playerLevel = diff.value;
+    console.log(playerName);
+    console.log(playerLevel);
+    postPlayer(playerName, playerLevel);
+  });
 }
 
 function postPlayer(name, level) {
@@ -75,62 +73,60 @@ function postPlayer(name, level) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json"
+      Accept: "application/json"
     },
     body: JSON.stringify(player)
   };
   fetch("http://localhost:3000/players", configObj)
-  .then(function (response) {
-    return response.json()
-  })
-  .then(function (data) {
-    parseGame(data)
-  })
-  };
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      parseGame(data);
+    });
+}
 
-  // parse data returned from post fetch for new player/game
-  let game;
+// parse data returned from post fetch for new player/game
+let game;
 
-  function parseGame(data) {
-    console.log(data)
-    // const dataTiles = [...data.tiles]
-    game = new Game(data.player_name, data.player_id, data.game_id)
-    fetchTiles(game.gameId)
-  }
+function parseGame(data) {
+  console.log(data);
+  // const dataTiles = [...data.tiles]
+  game = new Game(data.player_name, data.player_id, data.game_id);
+  fetchTiles(game.gameId);
+}
 
-  // fetch tiles for game
-  function fetchTiles(gameId) {
+// fetch tiles for game
+function fetchTiles(gameId) {
   fetch(`${BACKEND_URL}/games/${gameId}`)
     .then(response => response.json())
     .then(parsedResponse => parseTiles(parsedResponse.tiles));
-  }
+}
 
-  let gameTiles;
+let gameTiles;
 
-  function parseTiles(tiles) {
-   
-    gameTiles = tiles.map(t => {
-      let newTile = new Tile(t.id, t.front, t.back)
-      return newTile
-    })
-    
-    renderGame();
-  }
+function parseTiles(tiles) {
+  gameTiles = tiles.map(t => {
+    let newTile = new Tile(t.id, t.front, t.back);
+    return newTile;
+  });
 
-  class Game {
-    constructor(playerName, playerId, gameId) {
-      this.playerName = playerName
-      this.playerId = playerId
-      this.gameId = gameId
-      // this.gameTimer = 0
-    }
-    
-  }
+  renderGame();
+}
 
-  class Tile {
-    constructor(id, front, back) {
-      this.id = id
-      this.front = front
-      this.back = back
-    }
+class Game {
+  constructor(playerName, playerId, gameId) {
+    this.playerName = playerName;
+    this.playerId = playerId;
+    this.gameId = gameId;
+    // this.gameTimer = 0
   }
+}
+
+class Tile {
+  constructor(id, front, back) {
+    this.id = id;
+    this.front = front;
+    this.back = back;
+  }
+}
