@@ -56,5 +56,9 @@ fetch(`${BACKEND_URL}/test`)
   <div>${highScoreBoard}</div>
 </div>
 <div class="container" id="game-board">
-  
+
 </div>
+
+need to find tile back picture and unique colors for tile fronts
+
+need to double tiles on rendering and randomize
