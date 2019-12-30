@@ -29,14 +29,15 @@ const tileBackColors = []
 
 function tileProcessor() {
   processedTiles = gameTiles.map(t => {
-    // t.front = `<div class="rounded thumbnail front" tileid="${t.id}"></div>`;
-    // t.back = `<div class="rounded thumbnail back" style="background-color: blue;" tileid="${t.id}"></div>`;
-    t.front = `<div class="flip-card-front" tileid="${t.id}">
+    t.front = `<div class="flip-card-front rounded" tileid="${t.id}">
     
   </div>`
-    t.back = `<div class="flip-card-back" tileid="${t.id}>
+    t.back = `<div class="flip-card-back rounded" tileid="${t.id}>
     <p style="color:black;"></p>
   </div>`
+
+    // t.front = `<div class="front"> </div>`
+    // t.back = `<div class="back"><p style="color:black;"></p></div>`
     return t;
   });
 }
@@ -47,8 +48,8 @@ function renderTiles() {
 
   shuffle(clonedTiles).map(t => {
     const thisTile = `
-    <div class="flip-card thumbnail rounded">
-  <div class="flip-card-inner">
+    <div class="flip-card thumbnail">
+  <div class="flip-card-inner rounded" onclick="flip()">
     ${t.front}
     ${t.back}
   </div>
@@ -56,6 +57,10 @@ function renderTiles() {
     `
     tileBox.innerHTML += thisTile;
   });
+}
+
+function flip() {
+  $('.flip-card-inner').toggleClass('flipped');
 }
 
 function shuffle(array) {

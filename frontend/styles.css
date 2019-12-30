@@ -47,7 +47,7 @@ h1 {
   /* width: 300px; */
   /* height: 200px; */
   /* border: 1px solid #f1f1f1; */
-  perspective: 1000px;
+  /* perspective: 1000px; */
 }
 
 /* This container is needed to position the front and back side */
@@ -61,11 +61,6 @@ h1 {
   transform-style: preserve-3d;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
 /* Position the front and back side */
 .flip-card-front, .flip-card-back {
   position: absolute;
@@ -74,18 +69,49 @@ h1 {
   backface-visibility: hidden;
 }
 
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  /* transform: rotateY(180deg); */
+  opacity: 0.5;
+}
+
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  /* background-color: #bbb; */
+  background-color: #bbb;
   background: url("images/mm.png");
   color: black;
 }
 
 /* Style the back side */
 .flip-card-back {
-  /* background-color: dodgerblue; */
+  background-color: dodgerblue;
   background: url("images/blackkitty.jpg");
   background-size: 160px 160px;
   color: black;
+  -webkit-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
   transform: rotateY(180deg);
 }
+
+.flip-card-inner.flipped {
+  -webkit-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );
+  backface-visibility: visible;
+}
+
+
+ 
+ .tile-container {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  border: 1px solid #ccc;
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  -o-perspective: 800px;
+  perspective: 800px;
+}
+

@@ -77,3 +77,58 @@ background-image: url('silouette_interface.jpeg');
     </div>
   </div>
 </div>
+
+<section class="thumbnail">
+  <div class="card" onclick="flip()">
+    <div class="front">1</div>
+    <div class="back">2</div>
+  </div>
+</section>
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transition: -webkit-transform 1s;
+  -moz-transition: -moz-transform 1s;
+  -o-transition: -o-transform 1s;
+  transition: transform 1s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  /* -webkit-transform-origin: 50% 50%; */
+}
+.card div {
+  /* display: block; */
+  height: 160px;
+  width: 160px;
+  /* line-height: 260px; */
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 140px;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.card .front {
+  background: url("images/mm.png");
+  background-size: 160px 160px;
+}
+.card .back {
+  background: url("images/blackkitty.jpg");
+  background-size: 160px 160px;
+  -webkit-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );
+}
+.card.flipped {
+  -webkit-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );
+}
