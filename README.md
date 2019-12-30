@@ -1,24 +1,17 @@
-# README
+# MATCHY-MATCH
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Single page web application using Rails for the backend and Javascript and HTML for the frontend.
 
-Things you may want to cover:
+### Description
 
-* Ruby version
+### Possible Future Change of Upgrades
 
-* System dependencies
+###  Technologies
 
-* Configuration
+### Setup
 
-* Database creation
+### Resources
 
-* Database initialization
+### License
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+MIT License

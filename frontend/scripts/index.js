@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function newGameForm() {
   const gameForm = 
   `<div class="jumbotron" id="new-player-form">
+    <center>
     <h1>Welcome to mAtChY-mAtCh!</h1>
     <form>
       <div>
@@ -39,8 +40,9 @@ function newGameForm() {
         </label>
       </div>
       
-      <button type"submit" class="btn btn-primary btn-sm">Let's Play!</button>
+      <button type"submit" class="btn btn-secondary btn-lg">Let's Play!</button>
     </form>
+    </center>
   </div>`
   // body = document.querySelector('body')
   // body.innerHTML = gameForm
