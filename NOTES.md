@@ -49,4 +49,12 @@ fetch(`${BACKEND_URL}/test`)
 
     TODO: fetch function to get tiles for game (2/3 fetch calls)
 
-
+<div class="container" id="player-info-board">
+  <div>${game.playerName}</div>
+  <div>${game.levelDifficulty}</div>
+  <div>${game.timer}</div>
+  <div>${highScoreBoard}</div>
+</div>
+<div class="container" id="game-board">
+  
+</div>

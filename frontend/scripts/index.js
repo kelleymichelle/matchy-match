@@ -9,33 +9,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function newGameForm() {
   const gameForm = 
-  `<div id="new-player-form">
+  `<div class="jumbotron" id="new-player-form">
     <form>
       <div>
         <label for"playerName">Player Name:</label>
         <input type="text" id="playerName" name="playerName">
       </div>
-      <div>
-        <input class="radio" type="radio" id="very-easy" name="radio" value="very easy">
-        <label for="very-easy">Very Easy</label>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        
+      <label class="btn btn-secondary">
+          <input class="radio" type="radio" id="very-easy" name="options" value="very easy">Very Easy
+      </label>  
+       
+        <label class="btn btn-secondary">
+          <input class="radio" type="radio" id="easy" name="options" value="easy">Easy
+        </label>
+        
+        <label class="btn btn-secondary">
+          <input class="radio" type="radio" id="medium" name="options" value="medium">Medium
+        </label>
+        
+        <label class="btn btn-secondary">
+          <input class="radio" type="radio" id="hard" name="options" value="hard">Hard
+        </label>
+        
+        <label class="btn btn-secondary">
+          <input class="radio" type="radio" id="very-hard" name="options" value="very hard">Very Hard
+        </label>
       </div>
-      <div>
-        <input class="radio" type="radio" id="easy" name="radio" value="easy">
-        <label for="easy">Easy</label>
-      </div>
-      <div>
-        <input class="radio" type="radio" id="medium" name="radio" value="medium">
-        <label for="medium">Medium</label>
-      </div>
-      <div>
-        <input class="radio" type="radio" id="hard" name="radio" value="hard">
-        <label for="hard">Hard</label>
-      </div>
-      <div>
-        <input class="radio" type="radio" id="very-hard" name="radio" value="very hard">
-        <label for="very-hard">Very Hard</label>
-      </div>
-      <button type"submit">Let's Play!</button>
+      
+      <button type"submit" class="btn btn-primary btn-sm">Let's Play!</button>
     </form>
   </div>`
   body = document.querySelector('body')
