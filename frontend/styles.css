@@ -90,6 +90,7 @@ h1 {
   background-color: #bbb;
   /* background: url("images/blackkitty.jpg"); */
   background-size: 160px 160px;
+  overflow: hidden;
   /* color: black; */
   -webkit-transform: rotateY( 180deg );
   -moz-transform: rotateY( 180deg );
@@ -119,9 +120,9 @@ h1 {
 }
 
 img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
+  width: 160px;
+  height: 160px;
+  /* flex-grow: 1; */
   /* max-height: 100%; */
 }
 
