@@ -59,7 +59,28 @@ const tileBackCats = [
   "images/cats/teacupkitty.jpg",
   "images/cats/winking-kitty.jpg",
   "images/cats/wow-stripe.jpg",
-  "images/cats/blackkitty.jpg"]
+  "images/cats/blackkitty.jpg",
+  "images/cats/banana-cat.jpg",
+  "images/cats/doctor-who.jpg",
+  "images/cats/dorothy.jpg",
+  "images/cats/frog-kitty.jpg",
+  "images/cats/hammock-kity.jpg",
+  "images/cats/held-fuzzy-kitty.jpeg",
+  "images/cats/hoody-cat.jpg",
+  "images/cats/jawa-cat.jpg",
+  "images/cats/jedi-cat.jpg",
+  "images/cats/kissing-kitties.jpg",
+  "images/cats/lioncat.jpg",
+  "images/cats/nyan-cat.jpeg",
+  "images/cats/octopussy.jpg",
+  "images/cats/paws-on-glass1b48f8d72b77eef0a3e760d4fb9.jpg",
+  "images/cats/pimp-kitty.png",
+  "images/cats/queen-kitty.jpg",
+  "images/cats/snow-white.png",
+  "images/cats/tabby-potter.jpg",
+  "images/cats/tophat-cat.jpg",
+  "images/cats/woody.jpg",
+  "images/cats/yarn-kitty.jpeg"]
 
   // let shuffledCats = (tileBackCats) => shuffle(tileBackCats)
 
