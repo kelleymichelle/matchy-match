@@ -57,7 +57,7 @@ h1 {
   height: 100%;
   text-align: center;
   box-shadow: 10px 10px 3px grey;
-  transition: transform 0.7s;
+  transition: transform 0.9s;
   transform-style: preserve-3d;
 }
 
@@ -70,9 +70,12 @@ h1 {
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
+.flip-card:hover {
   /* transform: rotateY(180deg); */
-  opacity: 0.3;
+  /* opacity: 0.3; */
+  -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
 }
 
 /* Style the front side (fallback if image is missing) */
@@ -84,10 +87,10 @@ h1 {
 
 /* Style the back side */
 .flip-card-back {
-  background-color: dodgerblue;
-  background: url("images/blackkitty.jpg");
+  background-color: #bbb;
+  /* background: url("images/blackkitty.jpg"); */
   background-size: 160px 160px;
-  color: black;
+  /* color: black; */
   -webkit-transform: rotateY( 180deg );
   -moz-transform: rotateY( 180deg );
   -o-transform: rotateY( 180deg );
@@ -113,5 +116,12 @@ h1 {
   -moz-perspective: 800px;
   -o-perspective: 800px;
   perspective: 800px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  /* max-height: 100%; */
 }
 

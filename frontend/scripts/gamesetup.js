@@ -25,20 +25,28 @@ function renderInfoBar() {
 
 let processedTiles;
 
-const tileBackColors = []
+const tileBackCats = [
+  "images/cats/baby-cat.jpg", 
+  "images/cats/cat-in-hat.jpg", 
+  "images/cats/orange.jpg", 
+  "images/cats/shybk.jpg", 
+  "images/cats/sleepy-kitty.jpg",
+  "images/cats/teacupkitty.jpg",
+  "images/cats/winking-kitty.jpg",
+  "images/cats/wow-stripe.jpg",
+  "images/cats/blackkitty.jpg"]
 
 function tileProcessor() {
+  let num = 0
   processedTiles = gameTiles.map(t => {
     t.front = `<div class="flip-card-front rounded" tileid="${t.id}">
+  </div>`
+    t.back = `<div class="flip-card-back rounded" tileid="${t.id}">
+    <img src="${tileBackCats[num]}">
+  </div>`
+    num = ++num
     
-  </div>`
-    t.back = `<div class="flip-card-back rounded" tileid="${t.id}>
-    <p style="color:black;"></p>
-  </div>`
-
-    // t.front = `<div class="front"> </div>`
-    // t.back = `<div class="back"><p style="color:black;"></p></div>`
-    return t;
+    return t; 
   });
 }
 
