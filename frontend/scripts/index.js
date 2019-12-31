@@ -114,19 +114,3 @@ function parseTiles(tiles) {
   renderGame();
 }
 
-class Game {
-  constructor(playerName, playerId, gameId) {
-    this.playerName = playerName;
-    this.playerId = playerId;
-    this.gameId = gameId;
-    // this.gameTimer = 0
-  }
-}
-
-class Tile {
-  constructor(id, front, back) {
-    this.id = id;
-    this.front = front;
-    this.back = back;
-  }
-}
