@@ -35,6 +35,8 @@ function renderInfoBar() {
   const navbar = `
   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <div><h1>mAtChY-mAtCh</h1></div>
+    <div><h3>${game.playerName}</h3></div>
+    <div><h4>Timer</h4></div>
     
   </nav>
   `;
@@ -82,7 +84,7 @@ const tileBackCats = [
   "images/cats/woody.jpg",
   "images/cats/yarn-kitty.jpeg"]
 
-  // let shuffledCats = (tileBackCats) => shuffle(tileBackCats)
+  // let shuffledCats = () => shuffle(tileBackCats)
 
 function tileProcessor() {
   let num = 0
@@ -118,10 +120,6 @@ function renderTiles() {
 // function flip() {
 //   $('.flip-card-inner').toggleClass('flipped');
 // }
-
-function flip() {
-  $('.flip-card-inner').toggleClass('flipped');
-}
 
 
 

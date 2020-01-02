@@ -86,3 +86,20 @@ background-image: url('silouette_interface.jpeg');
 </section>
 
  onclick="flip()"
+
+ e => {
+      console.log(e)
+      // toggleFlip(tile)
+      tileAction(tile)
+    }
+
+    allTiles.forEach(tile => {
+    tile.addEventListener('click', e => {
+      tileAction(tile)})
+  })
+
+  function(e)
+  removeListeningevent on flipped tile
+
+  e => {
+        tileAction(tile)}
