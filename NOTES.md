@@ -103,3 +103,8 @@ background-image: url('silouette_interface.jpeg');
 
   e => {
         tileAction(tile)}
+
+        if (tilesInPlay.length === 2 && tilesInPlay[0] === tilesInPlay[1]) {
+    console.log("It's a match!") } else {
+      tilesInPlay.forEach(tile => tile.addEventListener('click', tileAct) )
+    }
