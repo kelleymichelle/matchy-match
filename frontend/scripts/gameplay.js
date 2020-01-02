@@ -54,30 +54,44 @@ function trackTiles(tile) {
   //    evaluateTiles() } else {
   //     tilesInPlay.push(tile)
   //   }
-    tilesInPlay.length === 2 ? evaluateTiles() : tilesInPlay.push(tile)
-    if (tilesInPlay.length === 2) {
-      evaluateTiles()
-    }
+  
+    tilesInPlay.length === 2 ? evaluateTiles() : addTile(tile)
+    // if (tilesInPlay.length === 2) {
+    //   evaluateTiles()
+    // }
     // console.log(tilesInPlay)
+}
+
+function addTile(tile) {
+  tilesInPlay.push(tile)
+  if (tilesInPlay.length === 2) {evaluateTiles()}
 }
 
 function evaluateTiles() {
   console.log(tilesInPlay)
-  debugger
+  // debugger
+  setTimeout( function() {
   if (tilesInPlay[0].innerHTML === tilesInPlay[1].innerHTML) {
     console.log("yay we match!") 
-    stopListening()
-    tilesInPlay = [] } else { 
+    // stopListening()
+    eraseMatches()
+    // eraseMatches()
+    } else { 
+      console.log("we don't match")
       tilesInPlay.forEach(t => replayTile(t))
-      }
+      }}, 900 )
 }
 
 function stopListening() {
   const allTiles = [...document.getElementsByClassName("flip-card-inner")]
   allTiles.forEach(tile => {
-   
     tile.removeEventListener('click', tileAct)
   })
+}
+
+function eraseMatches() {
+  tilesInPlay.forEach(tile => tile.remove())
+  tilesInPlay = []
 }
 
 function replayTile(tile) {
