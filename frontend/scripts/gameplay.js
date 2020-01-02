@@ -14,7 +14,7 @@ const tileAct = () => {console.log(event.target.offsetParent)
 }
 
 
-let tilesInPlay;
+let tilesInPlay = [];
 
 function tileAction(tile) {
   
@@ -35,8 +35,10 @@ function startTimer() {
 }
 
 function disableTile(tile) {
-  // listenTiles()
-  // debugger
-  // tile.removeEventListener('click', toggleFlip(tile))
+  if (tile.classList.contains('flipped')) {
+    tilesInPlay.push(tile)
+    console.log(tilesInPlay)
+    tile.removeEventListener('click', tileAct)
 
+  }
 }
