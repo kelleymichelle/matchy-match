@@ -7,8 +7,8 @@ class Game {
     this.playerName = playerName;
     this.playerId = playerId;
     this.gameId = gameId;
-    // this.gameTimer = 0
   }
+
 }
 
 class Tile {
@@ -30,18 +30,31 @@ function renderGame() {
   listenTiles();
 }
 
+
 function renderInfoBar() {
   const nabber = document.getElementById("nabber");
   const navbar = `
   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <div><h1>mAtChY-mAtCh</h1></div>
     <div><h3>${game.playerName}</h3></div>
-    <div><h4>Timer</h4></div>
+    <div id="game-timer"><h4>0</h4></div>
     
   </nav>
   `;
   nabber.innerHTML = navbar;
+
+  startTimer();
 }
+
+function startTimer() {
+  return setInterval(() => {
+    const count = document.getElementById('game-timer')
+    let num = parseInt(count.innerText)
+    num++
+    count.innerText = num
+  }, 1000);
+}
+
 
 let processedTiles;
 
