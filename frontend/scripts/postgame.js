@@ -2,8 +2,8 @@ function pushGameScore(score) {
   // patch fetch
   debugger
   let game_score = {
-    final_score: `parseInt(${score})`,
-    game_id: `${game.gameId}`
+    final_score: `${score}`
+    // game_id: `${game.gameId}`
   };
   let configObj = {
     method: "PATCH",
