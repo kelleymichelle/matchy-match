@@ -10,4 +10,9 @@ class GamesController < ApplicationController
     render json: game, include: [:player, :tiles]
   end
 
+  def update
+    
+  end
+
+
 end

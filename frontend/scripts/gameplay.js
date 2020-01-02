@@ -82,8 +82,8 @@ function gameEnd() {
     const gameCount = counter.innerText
     counter.innerText = ""
 
-    debugger
-
+    // debugger
+    pushGameScore(gameCount);
   }
 }
 

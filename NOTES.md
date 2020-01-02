@@ -108,3 +108,9 @@ background-image: url('silouette_interface.jpeg');
     console.log("It's a match!") } else {
       tilesInPlay.forEach(tile => tile.addEventListener('click', tileAct) )
     }
+
+    1/2
+
+    * patch fetch game score to api
+    * change schema to add final score to game. delete high score table
+    * query to show high scores by difficulty of level
