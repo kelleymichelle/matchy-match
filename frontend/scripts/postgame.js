@@ -12,7 +12,7 @@ function pushGameScore(score) {
     },
     body: JSON.stringify(game_score)
   };
-  fetch(`http://localhost:3000/games/${game.gameId}`, configObj)
+  fetch(`${BACKEND_URL}/games/${game.gameId}`, configObj)
     .then(function(response) {
       return response.json();
     })

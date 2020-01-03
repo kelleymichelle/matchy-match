@@ -17,6 +17,9 @@ class GamesController < ApplicationController
     render json: game
   end
 
+  def high_scores
+
+  end
   
 
 
