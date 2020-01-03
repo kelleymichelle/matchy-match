@@ -8,7 +8,6 @@ class Game {
     this.playerId = playerId;
     this.gameId = gameId;
   }
-
 }
 
 class Tile {
@@ -17,7 +16,6 @@ class Tile {
     this.front = front;
     this.back = back;
   }
-  
 }
 
 function renderGame() {
@@ -55,16 +53,6 @@ function startTimer() {
     count.innerText = num
   }, 1000);
 }
-
-// const startTimer = () => {
-//   return setInterval(() => {
-//     const count = document.getElementById('game-timer')
-//     let num = parseInt(count.innerText)
-//     num++
-//     count.innerText = num
-//   }, 1000);
-// }
-
 
 let processedTiles;
 
@@ -107,7 +95,7 @@ const tileBackCats = [
   "images/cats/woody.jpg",
   "images/cats/yarn-kitty.jpeg"]
 
-  let shuffledCats = () => shuffle(tileBackCats)
+  let shuffledCats = () => {return shuffle(tileBackCats)}
 
 function tileProcessor() {
   let num = 0
@@ -140,12 +128,6 @@ function renderTiles() {
   });
 }
 
-// function flip() {
-//   $('.flip-card-inner').toggleClass('flipped');
-// }
-
-
-
 function shuffle(array) {
   var currentIndex = array.length,
     temporaryValue,
@@ -158,6 +140,6 @@ function shuffle(array) {
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-  console.log(array);
+  // console.log(array);
   return array;
 }

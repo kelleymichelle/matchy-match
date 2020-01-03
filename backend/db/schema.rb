@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2019_12_27_053248) do
 
   create_table "games", force: :cascade do |t|
-    t.float "timer"
     t.integer "player_id"
     t.integer "final_score"
     t.datetime "created_at", precision: 6, null: false
