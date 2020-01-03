@@ -17,11 +17,5 @@ class GamesController < ApplicationController
     render json: game
   end
 
-  def high_scores
-    games = Level.find_difficulty('very easy')[0].games.order(final_score: :asc)
-    render json: game, include: [:player]
-  end
-  
-
 
 end

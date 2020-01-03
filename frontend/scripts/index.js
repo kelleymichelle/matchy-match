@@ -92,7 +92,7 @@ let game;
 function parseGame(data) {
   console.log(data);
   // const dataTiles = [...data.tiles]
-  game = new Game(data.player_name, data.player_id, data.game_id);
+  game = new Game(data.player_name, data.player_id, data.game_id, data.level_id);
   fetchTiles(game.gameId);
 }
 

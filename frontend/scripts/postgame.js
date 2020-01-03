@@ -21,14 +21,33 @@ function pushGameScore(score) {
     });
 }
 
-// const tileBox = document.getElementById('tile-box')
-
 function congrats(final_score) {
   
   tileBox.innerHTML = `<h1>Congrats ${game.playerName}! Level completed, your time is ${final_score}</h1>
   <div><h2>Play Again</h2</div>`
+
+  high_score_fetch()
+}
+
+function high_score_render(data) {
+  console.log(data)
+  // debugger
+  const scoreBoard = document.getElementById('high-score-box')
+  scoreBoard.innerHTML = `<div> <h2>High Scores for ${data[0].level.difficulty} Level</h2>
+  <ol id="score-board">
+    
+  </ol>
+
+</div>`
+scoreList = document.getElementById('score-board')
+    data.forEach(score => { 
+      const highScore = `<li><h5>Player: ${score.player.name} Time: ${score.final_score}</h5></li>`
+      scoreList.innerHTML += highScore
+    })
 }
 
 function high_score_fetch() {
-  
+  fetch(`${BACKEND_URL}/levels/${game.levelId}/high_scores`)
+    .then(response => response.json())
+    .then(res => high_score_render(res))
 }

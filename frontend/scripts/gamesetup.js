@@ -3,10 +3,11 @@
 const tileBox = document.getElementById("tile-box");
 
 class Game {
-  constructor(playerName, playerId, gameId) {
+  constructor(playerName, playerId, gameId, levelId) {
     this.playerName = playerName;
     this.playerId = playerId;
     this.gameId = gameId;
+    this.levelId = levelId;
   }
 }
 

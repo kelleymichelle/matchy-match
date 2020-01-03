@@ -35,7 +35,7 @@ class PlayersController < ApplicationController
     game.save!    
     player.games << game
     
-    render json: {player_id: player.id, player_name: player.name, game_id: game.id}
+    render json: {player_id: player.id, player_name: player.name, game_id: game.id, level_id: game.level_id}
   end
 
   #helpers for number of tiles per level

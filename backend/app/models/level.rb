@@ -8,9 +8,4 @@ class Level < ApplicationRecord
 
   scope :find_difficulty, ->(level_difficulty) { where(:difficulty => level_difficulty)}
 
-  # def find_level(diff)
-  #   self.where(difficulty: diff)
-  # end
-
-  
 end
