@@ -25,7 +25,8 @@ function pushGameScore(score) {
 
 function congrats(final_score) {
   
-  tileBox.innerHTML = `<h1>Congrats ${game.playerName}! Level completed, your time is ${final_score}</h1>`
+  tileBox.innerHTML = `<h1>Congrats ${game.playerName}! Level completed, your time is ${final_score}</h1>
+  <div><h2>Play Again</h2</div>`
 }
 
 function high_score_fetch() {
