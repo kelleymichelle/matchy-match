@@ -11,7 +11,7 @@ class GamesController < ApplicationController
   end
 
   def update
-    binding.pry
+    # binding.pry
     game = Game.find_by(id: params[:id])
     game.final_score = params[:final_score]
     render json: game

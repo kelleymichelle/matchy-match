@@ -80,9 +80,8 @@ function gameEnd() {
   if ( allTiles.length === 0) {
     const counter = document.getElementById("game-timer")
     const gameCount = counter.innerText
-    counter.innerText = ""
+    clearInterval(timerID)
 
-    // debugger
     pushGameScore(gameCount);
   }
 }

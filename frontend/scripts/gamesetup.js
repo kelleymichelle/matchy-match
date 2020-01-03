@@ -45,15 +45,25 @@ function renderInfoBar() {
 
   startTimer();
 }
+let timerID;
 
 function startTimer() {
-  return setInterval(() => {
+  timerID = setInterval(() => {
     const count = document.getElementById('game-timer')
     let num = parseInt(count.innerText)
     num++
     count.innerText = num
   }, 1000);
 }
+
+// const startTimer = () => {
+//   return setInterval(() => {
+//     const count = document.getElementById('game-timer')
+//     let num = parseInt(count.innerText)
+//     num++
+//     count.innerText = num
+//   }, 1000);
+// }
 
 
 let processedTiles;
@@ -97,7 +107,7 @@ const tileBackCats = [
   "images/cats/woody.jpg",
   "images/cats/yarn-kitty.jpeg"]
 
-  // let shuffledCats = () => shuffle(tileBackCats)
+  let shuffledCats = () => shuffle(tileBackCats)
 
 function tileProcessor() {
   let num = 0
@@ -105,7 +115,7 @@ function tileProcessor() {
     t.front = `<div class="flip-card-front rounded" tileid="${t.id}">
   </div>`
     t.back = `<div class="flip-card-back rounded" tileid="${t.id}">
-    <img src="${tileBackCats[num]}">
+    <img src="${shuffledCats()[num]}">
   </div>`
     num = ++num
     

@@ -111,6 +111,8 @@ background-image: url('silouette_interface.jpeg');
 
     1/2
 
-    * patch fetch game score to api
-    * change schema to add final score to game. delete high score table
+    
     * query to show high scores by difficulty of level
+
+    * create high score table
+    * 

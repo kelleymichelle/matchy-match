@@ -1,9 +1,8 @@
 function pushGameScore(score) {
   // patch fetch
-  debugger
+  // debugger
   let game_score = {
     final_score: `${score}`
-    // game_id: `${game.gameId}`
   };
   let configObj = {
     method: "PATCH",
@@ -18,6 +17,17 @@ function pushGameScore(score) {
       return response.json();
     })
     .then(function(data) {
-      console.log(data);
+      congrats(data.final_score);
     });
+}
+
+// const tileBox = document.getElementById('tile-box')
+
+function congrats(final_score) {
+  
+  tileBox.innerHTML = `<h1>Congrats ${game.playerName}! Level completed, your time is ${final_score}</h1>`
+}
+
+function high_score_fetch() {
+  
 }
