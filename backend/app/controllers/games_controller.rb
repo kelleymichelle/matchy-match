@@ -18,7 +18,8 @@ class GamesController < ApplicationController
   end
 
   def high_scores
-
+    games = Game.order(final_score: :desc)
+    render json: game, include: [:player]
   end
   
 

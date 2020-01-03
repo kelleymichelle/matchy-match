@@ -3,4 +3,10 @@ class Game < ApplicationRecord
   has_one :level
   has_many :tiles, through: :level
   # has_one :high_score
+
+
+  def difficulty
+    self.level.difficulty
+  end
+
 end

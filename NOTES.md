@@ -115,4 +115,6 @@ background-image: url('silouette_interface.jpeg');
     * query to show high scores by difficulty of level
 
     * create high score table
-    * 
+    
+
+    query to return games based on level difficulty desc high scores

@@ -93,6 +93,8 @@ const tileBackCats = [
   "images/cats/tabby-potter.jpg",
   "images/cats/tophat-cat.jpg",
   "images/cats/woody.jpg",
+  "images/cats/piano-cat.jpeg",
+  "images/cats/snoopy-cat.jpg",
   "images/cats/yarn-kitty.jpeg"]
 
   let shuffledCats = () => {return shuffle(tileBackCats)}
