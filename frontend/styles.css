@@ -154,3 +154,7 @@ ol li:before {
   align-items: center;
 }
 
+#navbar {
+  height: 175px;
+}
+

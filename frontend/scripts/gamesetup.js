@@ -35,8 +35,8 @@ function renderInfoBar() {
   const navbar = `
   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <div><h1 style="font-family: 'Monoton', cursive;">mAtChY-mAtCh</h1></div>
-    <div><h3>${game.playerName}</h3></div>
-    <div id="game-timer"><h4>0</h4></div>
+    <div><h3>Player: ${game.playerName}</h3></div>
+    <div id="game-timer"><h3>0</h3></div>
     
   </nav>
   `;
