@@ -23,8 +23,7 @@ function pushGameScore(score) {
 
 function congrats(final_score) {
   
-  tileBox.innerHTML = `<h1>Congrats ${game.playerName}! Level completed, your time is ${final_score}</h1>
-  <div><h2>Play Again</h2</div>`
+  tileBox.innerHTML = `<h1>Congrats ${game.playerName}! Level completed, your time is ${final_score}</h1>`
 
   high_score_fetch()
 }
@@ -33,17 +32,17 @@ function high_score_render(data) {
   console.log(data)
   // debugger
   const scoreBoard = document.getElementById('high-score-box')
-  scoreBoard.innerHTML = `<div> <h2>High Scores for ${data[0].level.difficulty} Level</h2>
+  const capitalizedTitle = `High Scores for ${data[0].level.difficulty} Level`.toUpperCase()
+  scoreBoard.innerHTML = `<h2>${capitalizedTitle}</h2>
   <ol id="score-board">
     
-  </ol>
-
-</div>`
+  </ol>`
 scoreList = document.getElementById('score-board')
     data.forEach(score => { 
-      const highScore = `<li><h5>Player: ${score.player.name} Time: ${score.final_score}</h5></li>`
+      const highScore = `<li>${score.player.name} - Time: ${score.final_score}</li>`
       scoreList.innerHTML += highScore
     })
+    scoreBoard.innerHTML += `<a onclick="document.location.reload(true)" class="btn btn-success btn-lg" href="#" role="button">PLAY AGAIN</a>`
 }
 
 function high_score_fetch() {

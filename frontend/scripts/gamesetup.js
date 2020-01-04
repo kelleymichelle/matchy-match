@@ -34,7 +34,7 @@ function renderInfoBar() {
   const nabber = document.getElementById("nabber");
   const navbar = `
   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <div><h1>mAtChY-mAtCh</h1></div>
+    <div><h1 style="font-family: 'Monoton', cursive;">mAtChY-mAtCh</h1></div>
     <div><h3>${game.playerName}</h3></div>
     <div id="game-timer"><h4>0</h4></div>
     

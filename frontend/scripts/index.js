@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function newGameForm() {
   const gameForm = `<div class="jumbotron" id="new-player-form">
     <center>
-    <h1>Welcome to mAtChY-mAtCh!</h1>
+    <h1 style="font-family: 'Monoton', cursive;">Welcome to mAtChY-mAtCh!</h1>
     <form>
       <div>
         <label for"playerName">Player Name:</label>

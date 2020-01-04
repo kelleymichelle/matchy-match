@@ -118,3 +118,24 @@ background-image: url('silouette_interface.jpeg');
     
 
     query to return games based on level difficulty desc high scores
+
+    li {
+  margin: 10px;
+}
+
+ol {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+}
+ol li {
+  counter-increment: my-awesome-counter;
+}
+ol li::before {
+  content: counter(my-awesome-counter) ". ";
+  color: red;
+  font-weight: bold;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+}
