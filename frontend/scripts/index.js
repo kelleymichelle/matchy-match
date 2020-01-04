@@ -3,13 +3,14 @@ const PLAYERS_URL = `${BACKEND_URL}/players`;
 
 document.addEventListener("DOMContentLoaded", function() {
   newGameForm();
+  projectMoonlight();
   listenForNewGame();
 });
 
 function newGameForm() {
   const gameForm = `<div class="jumbotron" id="new-player-form">
     <center>
-    <h1 style="font-family: 'Monoton', cursive;">Welcome to mAtChY-mAtCh!</h1>
+    <h1 style="font-family: 'Monoton', cursive;">Welcome t<img id="easter-egg" src="images/moon-pic.png" alt="moon pic" style="width:29px; height:29px;"> mAtChY-mAtCh!</h1>
     <form>
       <div>
         <label for"playerName">Player Name:</label>
