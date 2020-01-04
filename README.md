@@ -35,6 +35,17 @@ This application uses Ruby for the backend and Javascript, HTML, and CSS for the
 
 ### Resources
 
+- https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+- https://stackoverflow.com/questions/3387427/remove-element-by-id
+- https://getbootstrap.com/docs/4.2/components/buttons/
+- https://jsfiddle.net/james2doyle/qsQun/
+- https://css-tricks.com/almanac/properties/b/backface-visibility/
+- https://www.w3schools.com/jquery/html_toggleclass.asp
+- https://gomakethings.com/removing-an-event-listener-with-vanilla-javascript/
+- https://stackoverflow.com/questions/109086/stop-setinterval-call-in-javascript
+- https://apidock.com/rails/ActiveRecord/NamedScope/ClassMethods/scope
+- https://css-tricks.com/custom-list-number-styling/
+
 ### License
 
 MIT License
