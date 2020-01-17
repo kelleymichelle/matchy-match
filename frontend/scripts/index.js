@@ -1,5 +1,5 @@
 const BACKEND_URL = "http://localhost:3000";
-const PLAYERS_URL = `${BACKEND_URL}/players`;
+// const PLAYERS_URL = `${BACKEND_URL}/players`;
 
 document.addEventListener("DOMContentLoaded", function() {
   newGameForm();
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
   listenForNewGame();
 });
 
-function newGameForm() {
+const newGameForm = () => {
   const gameForm = `<div class="jumbotron" id="new-player-form">
     <center>
     <h1 style="font-family: 'Monoton', cursive;">Welcome t<img id="easter-egg" src="images/moon-pic.png" alt="moon pic" style="width:29px; height:29px;"> mAtChY-mAtCh!</h1>
@@ -49,7 +49,7 @@ function newGameForm() {
   cont.innerHTML = gameForm;
 }
 
-function listenForNewGame() {
+const listenForNewGame = () => {
   const gameForm = document.getElementById("new-player-form");
   const radios = document.getElementsByClassName("radio");
 
@@ -65,7 +65,7 @@ function listenForNewGame() {
   });
 }
 
-function postPlayer(name, level) {
+const postPlayer = (name, level) => {
   let player = {
     name: `${name}`,
     level: `${level}`
@@ -90,7 +90,7 @@ function postPlayer(name, level) {
 // parse data returned from post fetch for new player/game
 let game;
 
-function parseGame(data) {
+const parseGame = (data) => {
   console.log(data);
   // const dataTiles = [...data.tiles]
   game = new Game(data.player_name, data.player_id, data.game_id, data.level_id);
@@ -98,7 +98,7 @@ function parseGame(data) {
 }
 
 // fetch tiles for game
-function fetchTiles(gameId) {
+const fetchTiles = (gameId) => {
   fetch(`${BACKEND_URL}/games/${gameId}`)
     .then(response => response.json())
     .then(parsedResponse => parseTiles(parsedResponse.tiles));
@@ -106,7 +106,7 @@ function fetchTiles(gameId) {
 
 let gameTiles;
 
-function parseTiles(tiles) {
+const parseTiles = (tiles) => {
   gameTiles = tiles.map(t => {
     let newTile = new Tile(t.id, t.front, t.back);
     return newTile;

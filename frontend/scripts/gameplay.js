@@ -1,5 +1,5 @@
 
-function listenTiles() {
+const listenTiles = () => {
   const allTiles = [...document.getElementsByClassName("flip-card-inner")]
   allTiles.forEach(tile => {
     
@@ -7,41 +7,42 @@ function listenTiles() {
   })
 }
 
+//const function action to listening event to allow remove listening event later on
 const tileAct = () => {console.log(event.target.offsetParent)
   const tile = event.target.offsetParent
-  toggleFlip(tile)
+  toggleFlip(tile);
+  // Tile.toggleFlip(tile)
 }
 
 
 let tilesInPlay = [];
 
 
-function toggleFlip(tile) {
+const toggleFlip = (tile) => {
   tile.classList.toggle('flipped')
   disableTile(tile)
 }
 
-function disableTile(tile) {
+const disableTile = (tile) => {
   if (tile.classList.contains('flipped')) {
     
     tile.removeEventListener('click', tileAct)
     trackTiles(tile)
   }
- 
 }
 
-function trackTiles(tile) {
+const trackTiles = (tile) => {
  
     tilesInPlay.length === 2 ? evaluateTiles() : addTile(tile)
  
 }
 
-function addTile(tile) {
+const addTile = (tile) => {
   tilesInPlay.push(tile)
   if (tilesInPlay.length === 2) {evaluateTiles()}
 }
 
-function evaluateTiles() {
+const evaluateTiles = () => {
   console.log(tilesInPlay)
  
   setTimeout( function() {
@@ -55,34 +56,35 @@ function evaluateTiles() {
       }}, 900 )
 }
 
-function stopListening() {
+const stopListening = () => {
   const allTiles = [...document.getElementsByClassName("flip-card-inner")]
   allTiles.forEach(tile => {
     tile.removeEventListener('click', tileAct)
   })
 }
 
-function eraseMatches() {
+const eraseMatches = () => {
   tilesInPlay.forEach(tile => tile.remove())
   tilesInPlay = []
   gameEnd()
 }
 
-function replayTile(tile) {
+const replayTile = (tile) => {
   tile.classList.toggle('flipped')
   stopListening()
   tilesInPlay = []
   listenTiles()
 }
 
-function gameEnd() {
+const gameEnd = () => {
   const allTiles = document.getElementsByClassName("flip-card-inner")
   if ( allTiles.length === 0) {
     const counter = document.getElementById("game-timer")
     const gameCount = counter.innerText
     clearInterval(timerID)
 
-    pushGameScore(gameCount);
+    // pushGameScore(gameCount);
+    game.pushGameScore(gameCount);
   }
 }
 

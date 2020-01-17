@@ -9,41 +9,89 @@ class Game {
     this.gameId = gameId;
     this.levelId = levelId;
   }
+
+  renderInfoBar() {
+    const nabber = document.getElementById("nabber");
+    const navbar = `
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <div><h1 style="font-family: 'Monoton', cursive;">mAtChY-mAtCh</h1></div>
+      <div><h3>Player: ${this.playerName}</h3></div>
+      <div id="game-timer"><h3>0</h3></div>
+      
+    </nav>
+    `;
+    nabber.innerHTML = navbar;
+    startTimer();
+  }
+
+  congrats(final_score) {
+    tileBox.innerHTML = `<h1>Congrats ${this.playerName}! Level completed, your time is ${final_score}</h1>`
+    Game.highScoreFetch()
+  }
+
+  pushGameScore(score) {
+    let game_score = {
+      final_score: `${score}`
+    };
+    let configObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(game_score)
+    };
+    fetch(`${BACKEND_URL}/games/${this.gameId}`, configObj)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        game.congrats(data.final_score);
+      });
+  }
+
+  static highScoreFetch() {
+    fetch(`${BACKEND_URL}/levels/${game.levelId}/high_scores`)
+      .then(response => response.json())
+      .then(res => highScoreRender(res))
+  }
+
 }
 
-class Tile {
-  constructor(id, front, back) {
-    this.id = id;
-    this.front = front;
-    this.back = back;
-  }
-}
+// class Tile {
+//   constructor(id, front, back) {
+//     this.id = id;
+//     this.front = front;
+//     this.back = back;
+//   }
+// }
 
 function renderGame() {
   console.log(game);
   console.log(gameTiles);
   tileBox.innerHTML = "";
-  renderInfoBar();
+  // renderInfoBar();
+  game.renderInfoBar();
   tileProcessor();
   renderTiles();
   listenTiles();
 }
 
 
-function renderInfoBar() {
-  const nabber = document.getElementById("nabber");
-  const navbar = `
-  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <div><h1 style="font-family: 'Monoton', cursive;">mAtChY-mAtCh</h1></div>
-    <div><h3>Player: ${game.playerName}</h3></div>
-    <div id="game-timer"><h3>0</h3></div>
+// function renderInfoBar() {
+//   const nabber = document.getElementById("nabber");
+//   const navbar = `
+//   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+//     <div><h1 style="font-family: 'Monoton', cursive;">mAtChY-mAtCh</h1></div>
+//     <div><h3>Player: ${game.playerName}</h3></div>
+//     <div id="game-timer"><h3>0</h3></div>
     
-  </nav>
-  `;
-  nabber.innerHTML = navbar;
+//   </nav>
+//   `;
+//   nabber.innerHTML = navbar;
 
-  startTimer();
-}
+//   startTimer();
+// }
 let timerID;
 
 function startTimer() {
@@ -54,6 +102,15 @@ function startTimer() {
     count.innerText = num
   }, 1000);
 }
+
+// should work tHeOrEtIcAlLy
+// const startTimer = () => { 
+//   return setInterval(() => {
+//   const count = document.getElementById('game-timer')
+//   let num = parseInt(count.innerText)
+//   num++
+//   count.innerText = num
+// }, 1000)}
 
 let processedTiles;
 
@@ -98,9 +155,9 @@ const tileBackCats = [
   "images/cats/snoopy-cat.jpg",
   "images/cats/yarn-kitty.jpeg"]
 
-  let shuffledCats = () => {return shuffle(tileBackCats)}
+  const shuffledCats = () => shuffle(tileBackCats)
 
-function tileProcessor() {
+const tileProcessor = () => {
   let num = 0
   processedTiles = gameTiles.map(t => {
     t.front = `<div class="flip-card-front rounded" tileid="${t.id}">
@@ -114,7 +171,7 @@ function tileProcessor() {
   });
 }
 
-function renderTiles() {
+const renderTiles = () => {
   let clonedTiles = [...processedTiles];
   clonedTiles = clonedTiles.concat(processedTiles);
 
@@ -132,7 +189,7 @@ function renderTiles() {
 }
 
 function shuffle(array) {
-  var currentIndex = array.length,
+  let currentIndex = array.length,
     temporaryValue,
     randomIndex;
   while (0 !== currentIndex) {
