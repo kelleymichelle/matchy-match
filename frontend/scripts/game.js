@@ -1,21 +1,22 @@
-const tileBox = document.getElementById("tile-box");
+// const tileBox = document.getElementById("tile-box");
 
 class Game {
-  constructor(playerName, playerId, gameId, levelId) {
+  constructor(playerName, playerId, gameId, levelId, tileBox) {
     this.playerName = playerName;
     this.playerId = playerId;
     this.gameId = gameId;
     this.levelId = levelId;
+    this.tileBox = tileBox;
   }
 
    render() {
     console.log(game);
     console.log(gameTiles);
-    tileBox.innerHTML = "";
+    this.tileBox.innerHTML = "";
     // renderInfoBar();
     this.renderInfoBar();
     tileProcessor();
-    renderTiles();
+    this.renderTiles();
     listenTiles();
   }
 
@@ -33,8 +34,25 @@ class Game {
     startTimer();
   }
 
+  renderTiles() {
+    let clonedTiles = [...processedTiles];
+    clonedTiles = clonedTiles.concat(processedTiles);
+  
+    shuffle(clonedTiles).map(t => {
+      const thisTile = `
+      <div class="flip-card thumbnail">
+    <div class="flip-card-inner rounded">
+      ${t.front}
+      ${t.back}
+    </div>
+  </div>
+      `
+      this.tileBox.innerHTML += thisTile;
+    });
+  }
+
   congrats(final_score) {
-    tileBox.innerHTML = `<h1>Congrats ${this.playerName}! Level completed, your time is ${final_score}</h1>`
+    this.tileBox.innerHTML = `<h1>Congrats ${this.playerName}! Level completed, your time is ${final_score}</h1>`
     Game.highScoreFetch()
   }
 

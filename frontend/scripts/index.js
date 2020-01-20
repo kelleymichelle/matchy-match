@@ -93,7 +93,7 @@ let game;
 const parseGame = (data) => {
   console.log(data);
   // const dataTiles = [...data.tiles]
-  game = new Game(data.player_name, data.player_id, data.game_id, data.level_id);
+  game = new Game(data.player_name, data.player_id, data.game_id, data.level_id, document.getElementById("tile-box"));
   fetchTiles(game.gameId);
 }
 
