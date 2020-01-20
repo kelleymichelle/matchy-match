@@ -1,97 +1,13 @@
-// game- gameid, playerid, playername
-// gametiles- array with each tile instance
-const tileBox = document.getElementById("tile-box");
 
-class Game {
-  constructor(playerName, playerId, gameId, levelId) {
-    this.playerName = playerName;
-    this.playerId = playerId;
-    this.gameId = gameId;
-    this.levelId = levelId;
+class Tile {
+  constructor(id, front, back) {
+    this.id = id;
+    this.front = front;
+    this.back = back;
   }
 
-  renderInfoBar() {
-    const nabber = document.getElementById("nabber");
-    const navbar = `
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-      <div><h1 style="font-family: 'Monoton', cursive;">mAtChY-mAtCh</h1></div>
-      <div><h3>Player: ${this.playerName}</h3></div>
-      <div id="game-timer"><h3>0</h3></div>
-      
-    </nav>
-    `;
-    nabber.innerHTML = navbar;
-    startTimer();
-  }
 
-  congrats(final_score) {
-    tileBox.innerHTML = `<h1>Congrats ${this.playerName}! Level completed, your time is ${final_score}</h1>`
-    Game.highScoreFetch()
-  }
-
-  pushGameScore(score) {
-    let game_score = {
-      final_score: `${score}`
-    };
-    let configObj = {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(game_score)
-    };
-    fetch(`${BACKEND_URL}/games/${this.gameId}`, configObj)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        game.congrats(data.final_score);
-      });
-  }
-
-  static highScoreFetch() {
-    fetch(`${BACKEND_URL}/levels/${game.levelId}/high_scores`)
-      .then(response => response.json())
-      .then(res => highScoreRender(res))
-  }
-
-}
-
-// class Tile {
-//   constructor(id, front, back) {
-//     this.id = id;
-//     this.front = front;
-//     this.back = back;
-//   }
-// }
-
-function renderGame() {
-  console.log(game);
-  console.log(gameTiles);
-  tileBox.innerHTML = "";
-  // renderInfoBar();
-  game.renderInfoBar();
-  tileProcessor();
-  renderTiles();
-  listenTiles();
-}
-
-
-// function renderInfoBar() {
-//   const nabber = document.getElementById("nabber");
-//   const navbar = `
-//   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-//     <div><h1 style="font-family: 'Monoton', cursive;">mAtChY-mAtCh</h1></div>
-//     <div><h3>Player: ${game.playerName}</h3></div>
-//     <div id="game-timer"><h3>0</h3></div>
-    
-//   </nav>
-//   `;
-//   nabber.innerHTML = navbar;
-
-//   startTimer();
-// }
+//starts timer for game and captures timerID to clear later
 let timerID;
 
 function startTimer() {
@@ -103,17 +19,10 @@ function startTimer() {
   }, 1000);
 }
 
-// should work tHeOrEtIcAlLy
-// const startTimer = () => { 
-//   return setInterval(() => {
-//   const count = document.getElementById('game-timer')
-//   let num = parseInt(count.innerText)
-//   num++
-//   count.innerText = num
-// }, 1000)}
 
 let processedTiles;
 
+//array of cat pic files for backs of tiles
 const tileBackCats = [
   "images/cats/baby-cat.jpg",
   "images/cats/baseball-cat.jpeg",

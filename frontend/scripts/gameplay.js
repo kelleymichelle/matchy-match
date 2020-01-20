@@ -32,9 +32,7 @@ const disableTile = (tile) => {
 }
 
 const trackTiles = (tile) => {
- 
     tilesInPlay.length === 2 ? evaluateTiles() : addTile(tile)
- 
 }
 
 const addTile = (tile) => {
@@ -66,7 +64,7 @@ const stopListening = () => {
 const eraseMatches = () => {
   tilesInPlay.forEach(tile => tile.remove())
   tilesInPlay = []
-  gameEnd()
+  game.end()
 }
 
 const replayTile = (tile) => {
@@ -76,15 +74,4 @@ const replayTile = (tile) => {
   listenTiles()
 }
 
-const gameEnd = () => {
-  const allTiles = document.getElementsByClassName("flip-card-inner")
-  if ( allTiles.length === 0) {
-    const counter = document.getElementById("game-timer")
-    const gameCount = counter.innerText
-    clearInterval(timerID)
-
-    // pushGameScore(gameCount);
-    game.pushGameScore(gameCount);
-  }
-}
 

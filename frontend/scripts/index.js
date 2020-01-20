@@ -112,6 +112,6 @@ const parseTiles = (tiles) => {
     return newTile;
   });
 
-  renderGame();
+  game.render();
 }
 
