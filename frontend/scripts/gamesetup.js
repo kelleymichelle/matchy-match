@@ -82,40 +82,6 @@ const tileProcessor = () => {
   });
 }
 
-// const renderTiles = () => {
-//   let clonedTiles = [...processedTiles];
-//   clonedTiles = clonedTiles.concat(processedTiles);
-
-//   shuffle(clonedTiles).map(t => {
-//     const thisTile = `
-//     <div class="flip-card thumbnail">
-//   <div class="flip-card-inner rounded">
-//     ${t.front}
-//     ${t.back}
-//   </div>
-// </div>
-//     `
-//     this.tileBox.innerHTML += thisTile;
-//   });
-// }
-
-// function shuffle2(array) {
-//   let currentIndex = array.length,
-//     temporaryValue,
-//     randomIndex;
-//   while (0 !== currentIndex) {
-//     randomIndex = Math.floor(Math.random() * currentIndex);
-//     currentIndex -= 1;
-
-//     temporaryValue = array[currentIndex];
-//     array[currentIndex] = array[randomIndex];
-//     array[randomIndex] = temporaryValue;
-//   }
-//   // console.log(array);
-//   return array;
-// }
-
-
 function shuffle(arr){
   let indices = []
   const shuffledIndices = []
@@ -130,10 +96,3 @@ function shuffle(arr){
   }
   return shuffledIndices.map(i => arr[i])
 }
-
-// const set1 = new Set(shuffle(tileBackCats))
-// const set2 = new Set(shuffle2(tileBackCats))
-
-// console.log(tileBackCats.length)
-// console.log(set1.size)
-// console.log(set2.size)

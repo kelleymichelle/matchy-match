@@ -84,7 +84,8 @@ const postPlayer = (name, level) => {
     })
     .then(function(data) {
       parseGame(data);
-    });
+    })
+    .catch(err => alert(err.message));
 }
 
 // parse data returned from post fetch for new player/game
@@ -101,7 +102,8 @@ const parseGame = (data) => {
 const fetchTiles = (gameId) => {
   fetch(`${BACKEND_URL}/games/${gameId}`)
     .then(response => response.json())
-    .then(parsedResponse => parseTiles(parsedResponse.tiles));
+    .then(parsedResponse => parseTiles(parsedResponse.tiles))
+    .catch(err => alert(err.message));
 }
 
 let gameTiles;

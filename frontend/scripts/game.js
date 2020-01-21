@@ -74,7 +74,8 @@ class Game {
       })
       .then(function(data) {
         game.congrats(data.final_score);
-      });
+      })
+      .catch(err => alert(err.message));
   }
 
   end() {
@@ -92,6 +93,7 @@ class Game {
     fetch(`${BACKEND_URL}/levels/${game.levelId}/high_scores`)
       .then(response => response.json())
       .then(res => highScoreRender(res))
+      .catch(err => alert(err.message))
   }
 
 }
