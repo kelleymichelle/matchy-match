@@ -13,6 +13,8 @@ Single page web application using Rails for the backend and Javascript and HTML 
 
 ### Description
 
+Now available to play at https://matchy-match.herokuapp.com/
+
 Simple tile matching game. Player inputs name and selects a level. Tiles are rendered based on which level chosen. Timer starts with game. Once all matches have been made, timer stops and high scores for level played is displayed. 
 
 ### Possible Future Changes or Upgrades
