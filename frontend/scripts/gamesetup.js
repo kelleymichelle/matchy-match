@@ -70,7 +70,7 @@ const tileBackCats = [
 const tileProcessor = () => {
   let num = 0
   const effingCats = shuffledCats()
-  processedTiles = gameTiles.map(t => {
+  processedTiles = game.tiles.map(t => {
     t.front = `<div class="flip-card-front rounded" tileid="${t.id}">
   </div>`
     t.back = `<div class="flip-card-back rounded" tileid="${t.id}">

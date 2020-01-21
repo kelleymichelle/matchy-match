@@ -7,11 +7,21 @@ class Game {
     this.gameId = gameId;
     this.levelId = levelId;
     this.tileBox = tileBox;
+    this.tiles = [];
   }
 
-   render() {
+
+  // set tiles(tiles) {
+  //   this._tiles = [...tiles];
+  // }
+
+  // get tiles() {
+  //   return this.tiles
+  // }
+
+  render() {
     console.log(game);
-    console.log(gameTiles);
+    // console.log(gameTiles);
     this.tileBox.innerHTML = "";
     // renderInfoBar();
     this.renderInfoBar();

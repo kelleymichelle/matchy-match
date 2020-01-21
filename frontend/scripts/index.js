@@ -106,10 +106,10 @@ const fetchTiles = (gameId) => {
     .catch(err => alert(err.message));
 }
 
-let gameTiles;
+// let gameTiles;
 
 const parseTiles = (tiles) => {
-  gameTiles = tiles.map(t => {
+  game.tiles = tiles.map(t => {
     let newTile = new Tile(t.id, t.front, t.back);
     return newTile;
   });
