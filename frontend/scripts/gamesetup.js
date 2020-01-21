@@ -52,7 +52,7 @@ const tileBackCats = [
   "images/cats/snoopy-cat.jpg",
   "images/cats/yarn-kitty.jpeg"]
 
-  const shuffledCats = () => shuffle(tileBackCats)
+const shuffledCats = () => shuffle(tileBackCats)
 
 const tileProcessor = () => {
   let num = 0

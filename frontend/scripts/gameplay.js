@@ -1,9 +1,13 @@
 
 const listenTiles = () => {
   const allTiles = [...document.getElementsByClassName("flip-card-inner")]
+  // bugFix()
   allTiles.forEach(tile => {
+    bugFix(tile)
     
-    tile.addEventListener('click', tileAct)
+
+    tile.addEventListener('mousedown', tileAct)
+    tile.addEventListener('touchstart', tileAct)
   })
 }
 
@@ -41,17 +45,23 @@ const addTile = (tile) => {
 }
 
 const evaluateTiles = () => {
+  stopListening()
   console.log(tilesInPlay)
- 
+  
+  // allTiles.forEach(t => 
+
+  //   {if (t.classList.contains('flipped')) { tilesInPlay.push(t) } })
+  
   setTimeout( function() {
   if (tilesInPlay[0].innerHTML === tilesInPlay[1].innerHTML) {
     console.log("yay we match!") 
+    listenTiles()
     eraseMatches()
     
     } else { 
       console.log("we don't match")
       tilesInPlay.forEach(t => replayTile(t))
-      }}, 900 )
+      }}, 850 )
 }
 
 const stopListening = () => {
@@ -64,14 +74,22 @@ const stopListening = () => {
 const eraseMatches = () => {
   tilesInPlay.forEach(tile => tile.remove())
   tilesInPlay = []
+  // bugFix()
   game.end()
 }
 
 const replayTile = (tile) => {
+  // bugFix()
   tile.classList.toggle('flipped')
   stopListening()
   tilesInPlay = []
   listenTiles()
+}
+
+function bugFix(tile) {
+    if( tile.classList.contains('flipped') ){
+      tile.classList.toggle('flipped')
+    }
 }
 
 
