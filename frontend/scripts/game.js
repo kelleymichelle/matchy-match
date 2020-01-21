@@ -1,4 +1,3 @@
-// const tileBox = document.getElementById("tile-box");
 
 class Game {
   constructor(playerName, playerId, gameId, levelId, tileBox) {
@@ -8,16 +7,8 @@ class Game {
     this.levelId = levelId;
     this.tileBox = tileBox;
     this.tiles = [];
+    this.timerID;
   }
-
-
-  // set tiles(tiles) {
-  //   this._tiles = [...tiles];
-  // }
-
-  // get tiles() {
-  //   return this.tiles
-  // }
 
   render() {
     console.log(game);
@@ -41,7 +32,7 @@ class Game {
     </nav>
     `;
     nabber.innerHTML = navbar;
-    startTimer();
+    this.startTimer();
   }
 
   renderTiles() {
@@ -59,6 +50,16 @@ class Game {
       `
       this.tileBox.innerHTML += thisTile;
     });
+  }
+
+
+  startTimer() {
+    this.timerID = setInterval(() => {
+      const count = document.getElementById('game-timer')
+      let num = parseInt(count.innerText)
+      num++
+      count.innerText = num
+    }, 1000);
   }
 
   congrats(final_score) {
@@ -88,12 +89,13 @@ class Game {
       .catch(err => alert(err.message));
   }
 
+  //game end function
   end() {
     const allTiles = document.getElementsByClassName("flip-card-inner")
     if ( allTiles.length === 0) {
       const counter = document.getElementById("game-timer")
       const gameCount = counter.innerText
-      clearInterval(timerID)
+      clearInterval(this.timerID)
   
       this.pushGameScore(gameCount);
     }
@@ -102,8 +104,23 @@ class Game {
   static highScoreFetch() {
     fetch(`${BACKEND_URL}/levels/${game.levelId}/high_scores`)
       .then(response => response.json())
-      .then(res => highScoreRender(res))
+      .then(res => this.highScoreRender(res))
       .catch(err => alert(err.message))
   }
 
+  static highScoreRender(data) {
+    
+    const scoreBoard = document.getElementById('high-score-box')
+    const capitalizedTitle = `High Scores for ${data[0].level.difficulty} Level`.toUpperCase()
+    scoreBoard.innerHTML = `<h2>${capitalizedTitle}</h2>
+    <ol id="score-board">
+      
+    </ol>`
+    const scoreList = document.getElementById('score-board')
+      data.forEach(score => { 
+        const highScore = `<li>${score.player.name} - Time: ${score.final_score}</li>`
+        scoreList.innerHTML += highScore
+      })
+      scoreBoard.innerHTML += `<a onclick="document.location.reload(true)" class="btn btn-success btn-lg" href="#" role="button">PLAY AGAIN</a>`
+  }
 }

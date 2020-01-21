@@ -8,19 +8,6 @@ class Tile {
 }
 
 
-//starts timer for game and captures timerID to clear later
-let timerID;
-
-function startTimer() {
-  timerID = setInterval(() => {
-    const count = document.getElementById('game-timer')
-    let num = parseInt(count.innerText)
-    num++
-    count.innerText = num
-  }, 1000);
-}
-
-
 let processedTiles;
 
 //array of cat pic files for backs of tiles
