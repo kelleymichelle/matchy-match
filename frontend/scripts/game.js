@@ -109,7 +109,7 @@ class Game {
   }
 
   static highScoreRender(data) {
-    
+    debugger
     const scoreBoard = document.getElementById('high-score-box')
     const capitalizedTitle = `High Scores for ${data[0].level.difficulty} Level`.toUpperCase()
     scoreBoard.innerHTML = `<h2>${capitalizedTitle}</h2>

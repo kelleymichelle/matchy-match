@@ -108,6 +108,7 @@ const fetchTiles = (gameId) => {
 
 const parseTiles = (tiles) => {
   game.tiles = tiles.map(t => {
+    // debugger
     let newTile = new Tile(t.id, t.front, t.back);
     return newTile;
   });

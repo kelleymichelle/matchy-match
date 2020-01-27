@@ -92,4 +92,8 @@ function bugFix(tile) {
     }
 }
 
+function alphabetizeNamess(data) {
+  return data.sort((a, b) => (a.player.name > b.player.name) ? 1 : -1)
+}
+
 
