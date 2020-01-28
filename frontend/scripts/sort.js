@@ -20,7 +20,7 @@ const sortButtonListener = () => {
 
  function alphaPlayers(data, snippet, button, listener) {
   //  const orderedPlayers = alphabetizeNamess(highScores);
-   console.log(data)
+  //  console.log(data)
   const scoreBoard = document.getElementById('high-score-box')
   const capitalizedTitle = `${snippet} ${data[0].level.difficulty} Level`.toUpperCase()
   scoreBoard.innerHTML = `<h2>${capitalizedTitle}</h2>
@@ -37,9 +37,6 @@ const sortButtonListener = () => {
     listener()
 }
 
-// const buttonListener = () => {
-//   if 
-// }
  
 const unsortButtonListener = () => {
   const unsortButtonElement = document.getElementById('unsort-button')
