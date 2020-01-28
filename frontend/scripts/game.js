@@ -108,8 +108,10 @@ class Game {
       .catch(err => alert(err.message))
   }
 
+  
+
   static highScoreRender(data) {
-    debugger
+    highScores = [...data]
     const scoreBoard = document.getElementById('high-score-box')
     const capitalizedTitle = `High Scores for ${data[0].level.difficulty} Level`.toUpperCase()
     scoreBoard.innerHTML = `<h2>${capitalizedTitle}</h2>
@@ -121,6 +123,11 @@ class Game {
         const highScore = `<li>${score.player.name} - Time: ${score.final_score}</li>`
         scoreList.innerHTML += highScore
       })
-      scoreBoard.innerHTML += `<a onclick="document.location.reload(true)" class="btn btn-success btn-lg" href="#" role="button">PLAY AGAIN</a>`
+      scoreBoard.innerHTML += `<a onclick="document.location.reload(true)" class="btn btn-success btn-lg" href="#" role="button">PLAY AGAIN</a>
+      <button id="sort-button" class="btn btn-secondary btn-lg">Alphabetize Players</button>`
+
+      sortButtonListener();
   }
 }
+
+
